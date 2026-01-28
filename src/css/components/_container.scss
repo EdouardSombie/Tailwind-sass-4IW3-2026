@@ -1,0 +1,21 @@
+@use "../partials/variables" as v;
+
+@layer components {
+  .container {
+    // marge de 1rem à gauche et à droite
+    margin-inline: 1rem;
+
+    //parcourir la map $breakpoints
+    // pour chaque name, size : ecrire une media query
+    @each $name, $size in v.$breakpoints {
+      @media (width > $size) {
+        // marge auto à gauche et à droite
+        // max-width = size - 4rem
+        @if ($name == "sm") {
+          margin-inline: auto;
+        }
+        max-width: calc($size - 4rem);
+      }
+    }
+  }
+}

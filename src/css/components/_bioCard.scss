@@ -1,0 +1,14 @@
+@use "../partials/functions" as f;
+@layer components {
+  .bioCard {
+    // style du composant
+    width: f.rem(320);
+    // style des éléments
+    &__header {
+    }
+    &__image {
+    }
+    &__separator {
+    }
+  }
+}

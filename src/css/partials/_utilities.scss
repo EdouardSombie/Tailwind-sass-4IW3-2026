@@ -1,0 +1,28 @@
+$positions: (
+  t: top,
+  b: bottom,
+  l: left,
+  r: right,
+);
+
+@layer utilities {
+  @for $i from 0 through 6 {
+    .m-#{$i} {
+      margin: calc($i * var(--spacing)) !important;
+    }
+    .p-#{$i} {
+      padding: calc($i * var(--spacing));
+    }
+  }
+
+  @for $i from 0 through 6 {
+    @each $letter, $position in $positions {
+      .m#{$letter}-#{$i} {
+        margin-#{$position}: calc($i * var(--spacing));
+      }
+      .p#{$letter}-#{$i} {
+        padding-#{$position}: calc($i * var(--spacing));
+      }
+    }
+  }
+}

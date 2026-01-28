@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vars</title>
+    <style>
+      :root {
+        --link-color: blue;
+      }
+
+      main {
+        --link-color: yellow;
+      }
+      footer {
+        --link-color: green;
+      }
+
+      a {
+        color: var(--link-color);
+      }
+      /* header a {
+        color: red;
+      }
+      main a {
+        color: yellow;
+      }
+      footer a {
+        color: green;
+      } */
+      header {
+        --link-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="#">Lien1</a>
+    </header>
+    <main>
+      <a href="#">Lien1</a>
+    </main>
+    <footer>
+      <a href="#">Lien1</a>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+@use "fonts";
+@use "variables" as v;
+@layer base {
+  :root {
+    --mainFont: #{fonts.$mainFont};
+    --spacing: #{v.$spacing};
+    // parcourir la map colors pour créer des variables css de couleurs
+  }
+
+  body {
+    font-family: var(--mainFont);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
