@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-darkBlue: #1e293a;
+  --color-blue: #5d7a97;
+  --color-pink: #ff2896;
+  --color-orange: #ff9b65;
+  --color-cyan: #00ffc2;
+  --color-green: #00d5d5;
+}
+
+@layer components {
+  .btn {
+    @apply text-pink flex h-8 w-8 items-center justify-center rounded-full bg-white;
+    svg,
+    path {
+      fill: currentColor;
+    }
+  }
+}

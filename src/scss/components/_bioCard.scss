@@ -1,0 +1,92 @@
+@use "../partials/functions" as f;
+@layer components {
+  .bioCard {
+    // variables locales
+    --bg-color: var(--darkBlue);
+    @media (prefers-color-scheme: dark) {
+      --bg-color: var(--white);
+    }
+
+    // style du composant
+    width: f.rem(320);
+    padding: f.rem(32);
+    border-radius: f.rem(16);
+    background-color: var(--bg-color);
+    position: relative;
+    text-align: center;
+    color: var(--blue);
+    overflow: hidden;
+    // style des éléments
+    &__header {
+      @include f.flexbox($justify: flex-end);
+      position: absolute;
+      top: f.rem(16);
+      inset-inline: f.rem(16);
+    }
+    &__image {
+      border-radius: 9999px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center;
+      width: f.rem(176);
+      filter: saturate(0);
+      margin-bottom: f.rem(24);
+    }
+    &__title {
+      margin-top: 0;
+      margin-bottom: f.rem(12);
+      font-size: f.rem(24);
+      font-weight: 700;
+      @include f.textGradient($start: var(--pink), $end: var(--orange));
+    }
+    &__subtitle {
+      margin-top: 0;
+      margin-bottom: f.rem(12);
+      font-weight: 400;
+      font-size: f.rem(20);
+    }
+    &__separator {
+      color: inherit;
+      border-top: solid thin currentColor;
+      border-bottom: none;
+      margin-top: 0;
+      margin-bottom: f.rem(16);
+    }
+    &__text {
+      line-height: normal;
+      margin-top: 0;
+      margin-bottom: f.rem(48);
+    }
+    &__footer {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        inset: f.rem(-32) f.rem(-32) f.rem(-64);
+        background: linear-gradient(173deg, var(--orange), var(--pink) 50%);
+        transform: skewY(7deg);
+      }
+      &__list {
+        position: relative;
+        @include f.resetList;
+        @include f.flexbox($justify: center, $align: center, $gap: f.rem(24));
+      }
+    }
+    &__link {
+      background-color: var(--white);
+      @include f.flexbox($justify: center, $align: center);
+      border-radius: 9999px;
+      width: f.rem(32);
+      height: f.rem(32);
+      color: var(--pink);
+      svg,
+      path {
+        fill: currentColor;
+      }
+      &--alt {
+        background: linear-gradient(to bottom, var(--cyan), var(--green));
+        color: var(--black);
+      }
+    }
+  }
+}

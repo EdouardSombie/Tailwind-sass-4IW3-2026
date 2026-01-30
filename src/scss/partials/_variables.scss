@@ -16,4 +16,16 @@ $colors: (
   "pink": #ff2896,
   "orange": #ff9b65,
   "green": #00d5d5,
+  "cyan": #00ffc2,
+);
+
+$agosticColors: (
+  "body-bg-color": (
+    light: "white",
+    dark: "black",
+  ),
+  "body-text-color": (
+    light: "black",
+    dark: "white",
+  ),
 );

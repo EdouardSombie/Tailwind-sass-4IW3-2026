@@ -1,0 +1,40 @@
+@use "fonts";
+@use "variables" as v;
+@use "sass:map";
+
+@layer base {
+  :root {
+    --mainFont: #{fonts.$mainFont};
+    --spacing: #{v.$spacing};
+    // parcourir la map colors pour créer des variables css de couleurs
+    @each $name, $value in v.$colors {
+      --#{$name}: #{$value};
+    }
+    @each $name, $map in v.$agosticColors {
+      --#{$name}: var(--#{map.get($map, "light")});
+    }
+    @media (prefers-color-scheme: dark) {
+      @each $name, $map in v.$agosticColors {
+        --#{$name}: var(--#{map.get($map, "dark")});
+      }
+    }
+  }
+
+  .dark,
+  [data-theme="dark"] {
+    @each $name, $map in v.$agosticColors {
+      --#{$name}: var(--#{map.get($map, "dark")});
+    }
+  }
+
+  body {
+    font-family: var(--mainFont);
+    background-color: var(--body-bg-color);
+    color: var(--body-text-color);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
